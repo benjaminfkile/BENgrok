@@ -2,11 +2,11 @@ import fs from "fs";
 import path from "path";
 import os from "os";
 
-const BASE_DIR = path.join(os.homedir(), "BENgrokTunnelClient");
+const BASE_DIR = path.join(os.homedir(), "BENgrokClient");
 const PROFILE_FILE = path.join(BASE_DIR, "profiles.json");
 const TUNNEL_FILE = path.join(BASE_DIR, "tunnel_url.txt");
 
-describe("BENgrokTunnelClient Client", () => {
+describe("BENgrokClient Client", () => {
   beforeEach(() => {
     if (!fs.existsSync(BASE_DIR)) {
       fs.mkdirSync(BASE_DIR, { recursive: true });

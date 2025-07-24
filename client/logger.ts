@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const APP_NAME = process.env.APP_NAME || "BENgrokTunnelClient";
+const APP_NAME = process.env.APP_NAME || "BENgrokClient";
 const BASE_DIR = path.join(os.homedir(), APP_NAME);
 const LOG_DIR = path.join(BASE_DIR, "logs");
 const LOG_FILE = path.join(

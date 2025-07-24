@@ -84,9 +84,9 @@ To package this tunnel client as a standalone executable (for Windows, macOS, an
    ```
 
    This will generate binaries like:
-   - `BENgrokTunnelClient-win.exe`
-   - `BENgrokTunnelClient-linux`
-   - `BENgrokTunnelClient-macos`
+   - `BENgrokClient-win.exe`
+   - `BENgrokClient-linux`
+   - `BENgrokClient-macos`
 
 ---
 
@@ -104,7 +104,7 @@ The tunnel server must:
 ## 🧠 Example Use Case
 
 You’re building a React Native app that needs to call `http://localhost:3001/api/...`.  
-With `BENgrokTunnelClient`, you can map that local API to a public URL like:
+With `BENgrokClient`, you can map that local API to a public URL like:
 
 ```
 https://BENgroktunnel.launchpointhome.com/tunnel/tunnelId/...
@@ -126,9 +126,9 @@ When pushing updates to the `main` branch:
    ```
 
 3. Commit the updated binaries:
-   - `BENgrokTunnelClient-win.exe`
-   - `BENgrokTunnelClient-linux`
-   - `BENgrokTunnelClient-macos`
+   - `BENgrokClient-win.exe`
+   - `BENgrokClient-linux`
+   - `BENgrokClient-macos`
 
 4. Push to `main` so others can download the latest version from the repo.
 
