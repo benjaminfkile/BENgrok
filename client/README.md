@@ -1,6 +1,8 @@
-# BENgrokTunnel client
+[`<<<`](../README.md)
 
-**BENgrokTunnel client** is a tunnel client that connects your local development APIs to a remote tunnel server. It enables mobile apps or remote clients to securely access services running on `localhost`, making development and testing easy with no network hacks required.
+# BENgrok client
+
+**BENgrok client** is a tunnel client that connects your local development APIs to a remote tunnel server. It enables mobile apps or remote clients to securely access services running on `localhost`, making development and testing easy with no network hacks required.
 
 ---
 

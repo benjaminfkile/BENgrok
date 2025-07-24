@@ -1,9 +1,13 @@
-# BENgrok Tunnel System
+# BENgrok
 
-**BENgrok** is a complete tunnel solution (like Ngrok) that allows external clients to access local APIs during development, without exposing ports directly or deploying early. It includes:
+[`client`](client/README.md)  
+[`server`](server/README.md)
 
-- ✅ `client/` – Connects your local API (e.g., `http://localhost:3001`) to the tunnel server
-- ✅ `server/` – Hosts public WebSocket and HTTP endpoints and forwards traffic to connected clients
+
+**BENgrok** is a tunnel system (like Ngrok) for exposing local APIs to the internet. It includes:
+
+- ✅ `client/` – A CLI tunnel client that connects your local API (e.g. `http://localhost:3001`) to a public tunnel
+- ✅ `server/` – A public-facing WebSocket + HTTP tunnel server that routes traffic to connected clients
 
 ---
 
@@ -11,152 +15,164 @@
 
 ```
 BENgrok/
-├── client/     # Tunnel client CLI – connects local API to public URL
-├── server/     # Tunnel server – routes incoming traffic to local machines
-├── README.md   # You're here
+├── client/     # Tunnel client – connects localhost API to public tunnel server
+├── server/     # Tunnel server – forwards requests to connected clients
+└── README.md   # You're here
 ```
 
 ---
 
 ## 🌐 Use Case
 
-Let’s say you’re developing an API on `http://localhost:3001`, but your mobile app or another system needs to call it remotely.
+You're building a mobile app that needs to call a local API on your machine (e.g. `http://localhost:3001`), but the app is running on a real device.
 
-With BENgrok, you can create a tunnel that maps:
+With BENgrok, you can access that API via:
 
 ```
-https://your-tunnel.herokuapp.com/tunnel/my-api-id/...
+https://your-app.herokuapp.com/tunnel/<tunnelId>/...
 ```
 
-→
+Which transparently forwards to:
 
 ```
 http://localhost:3001/...
 ```
 
-Perfect for mobile app development, external integrations, or sharing work-in-progress APIs.
-
 ---
 
 ## 🚀 Getting Started
 
-### 1. Clone the repository
+### 1️⃣ Clone This Repo
 
 ```bash
-git clone git@github.com:benjaminfkile/BENgrok.git
+git clone https://github.com/benjaminfkile/BENgrok.git
 cd BENgrok
 ```
 
 ---
 
-## 🔧 Hosting the Tunnel Server on Heroku
+## 🛠 Hosting the Tunnel Server on Heroku
 
-> The `server/` folder contains an Express + WebSocket tunnel server ready for deployment.
+> The `server/` folder is the deployable Node.js tunnel server.
 
-### Step-by-step Heroku setup:
+### ✅ Step-by-Step Guide
 
-#### ✅ Step 1: Log in to Heroku
+#### 1. Fork This Repo
+
+Go to: https://github.com/benjaminfkile/BENgrok → Click "Fork"
+
+#### 2. Clone Your Fork
+
+```bash
+git clone https://github.com/<your-username>/BENgrok.git
+cd BENgrok
+```
+
+#### 3️⃣ Create a Heroku Account and Install the CLI
+
+If you don’t already have a [Heroku](https://heroku.com) account, follow these steps:
+
+1. 👉 Sign up at [https://signup.heroku.com](https://signup.heroku.com)
+2. Complete the form to create your free account
+
+Then install the **Heroku CLI** (Command Line Interface):
+
+- 📦 Download: [https://devcenter.heroku.com/articles/heroku-cli](https://devcenter.heroku.com/articles/heroku-cli)
+- Choose your OS (Windows, macOS, Linux) and follow the instructions
+
+Once installed, verify the CLI is available:
+
+```bash
+heroku --version
+```
+
+#### 4. Log in to Heroku
 
 ```bash
 heroku login
 ```
 
----
-
-#### ✅ Step 2: Create a new Heroku app
+#### 5. Create a Heroku App
 
 ```bash
-cd server
-heroku create <your-app-name>
+heroku create your-app-name
 ```
 
-#### ✅ Step 3: Deploy the server
+#### 6. Add Buildpacks for Monorepo Support
+
+```bash
+heroku buildpacks:clear -a your-app-name
+heroku buildpacks:add -a your-app-name https://github.com/timanovsky/subdir-heroku-buildpack
+heroku buildpacks:add -a your-app-name heroku/nodejs
+heroku config:set -a your-app-name PROJECT_PATH=server
+```
+
+#### 7. Add Heroku Remote
+
+Check existing remotes:
+
+```bash
+git remote -v
+```
+
+Then add Heroku remote:
+
+```bash
+heroku git:remote -a your-app-name
+```
+
+#### 8. Deploy to Heroku
 
 ```bash
 git push heroku main
 ```
 
----
+#### 9. Get Your Tunnel Server URL
 
-#### ✅ Step 4: Confirm it's running
-
-Visit:
-
-```
-https://<your-app-name>.herokuapp.com/
+```bash
+heroku info -a your-app-name
 ```
 
-You should see: `BENgrok Tunnel Server is running`
+Use the URL shown under "Web URL".
 
 ---
 
 ## 💻 Using the Tunnel Client
 
-See [`client/README.md`](./client/README.md) for full usage, or follow the steps below:
-
----
-
-### Step 1: Install dependencies
+See [`client/README.md`](./client/README.md) for full usage.
 
 ```bash
 cd client
 npm install
-```
-
----
-
-### Step 2: Start the tunnel client
-
-```bash
 npm start
 ```
 
-You’ll be prompted to enter:
+You'll be prompted for:
 
-- The public tunnel server URL (e.g., `https://your-app.herokuapp.com`)
-- The local API URL (e.g., `http://localhost:3001`)
-- A friendly name
-- (Optional) Save it as a profile
-
-This will establish a WebSocket connection and create a tunnel from:
-
-```
-https://your-app.herokuapp.com/tunnel/<tunnelId>/
-```
-
-→
-
-```
-http://localhost:3001/
-```
+- The public tunnel server URL (e.g. `https://your-app.herokuapp.com`)
+- Your local API URL (e.g. `http://localhost:3001`)
+- A tunnel ID and friendly name
 
 ---
 
-## 🧪 Example
+## 🔁 Enable GitHub Auto Deploys (Optional)
 
-If your local server serves `/api/users`, and your `tunnelId` is `abc123`, then this public URL:
+In the Heroku Dashboard:
 
-```
-https://your-app.herokuapp.com/tunnel/abc123/api/users
-```
+1. Go to the `Deploy` tab
+2. Connect to GitHub
+3. Search and select your forked repo
+4. Enable **Automatic Deploys** from the `main` branch
 
-...will forward to:
-
-```
-http://localhost:3001/api/users
-```
+Now your server auto-deploys when you push to GitHub.
 
 ---
 
-## 📂 Profiles
-
-Saved tunnels live in:
+## 🧪 Example Tunnel
 
 ```
-~/<APP_NAME>/profiles.json
+https://your-app.herokuapp.com/tunnel/abc123/api/users → http://localhost:3001/api/users
 ```
-
-These can be reused and managed via CLI.
 
 ---
 

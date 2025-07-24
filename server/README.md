@@ -1,6 +1,8 @@
-# BENgrokTunnel Server
+[`<<<`](../README.md)
 
-**BENgrokTunnel Server** is the backend component of the BENgrokTunnel system. It acts as a central WebSocket relay and HTTP proxy that allows remote clients and mobile apps to access APIs running on a developer’s local machine. This is ideal for scenarios where apps need to talk to `localhost` during development.
+# BENgrok server
+
+**BENgrok server** is the backend component of the BENgrokTunnel system. It acts as a central WebSocket relay and HTTP proxy that allows remote clients and mobile apps to access APIs running on a developer’s local machine. This is ideal for scenarios where apps need to talk to `localhost` during development.
 
 ---
 
