@@ -137,6 +137,21 @@ Use the URL shown under "Web URL".
 
 ---
 
+---
+
+## 🔁 Enable GitHub Auto Deploys (Optional)
+
+In the Heroku Dashboard:
+
+1. Go to the `Deploy` tab
+2. Connect to GitHub
+3. Search and select your forked repo
+4. Enable **Automatic Deploys** from the `main` branch
+
+Now your server auto-deploys when you push to GitHub.
+
+---
+
 ## 💻 Using the Tunnel Client
 
 See [`client/README.md`](./client/README.md) for full usage.
@@ -152,21 +167,6 @@ You'll be prompted for:
 - The public tunnel server URL (e.g. `https://your-app.herokuapp.com`)
 - Your local API URL (e.g. `http://localhost:3001`)
 - A tunnel ID and friendly name
-
----
-
-## 🔁 Enable GitHub Auto Deploys (Optional)
-
-In the Heroku Dashboard:
-
-1. Go to the `Deploy` tab
-2. Connect to GitHub
-3. Search and select your forked repo
-4. Enable **Automatic Deploys** from the `main` branch
-
-Now your server auto-deploys when you push to GitHub.
-
----
 
 ## 🧪 Example Tunnel
 
