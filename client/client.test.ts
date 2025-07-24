@@ -1,13 +1,12 @@
 import fs from "fs";
 import path from "path";
 import os from "os";
-import { jest } from "@jest/globals";
 
-const BASE_DIR = path.join(os.homedir(), "BENgrokTunnel");
+const BASE_DIR = path.join(os.homedir(), "BENgrokTunnelClient");
 const PROFILE_FILE = path.join(BASE_DIR, "profiles.json");
 const TUNNEL_FILE = path.join(BASE_DIR, "tunnel_url.txt");
 
-describe("BENgrokTunnel Client", () => {
+describe("BENgrokTunnelClient Client", () => {
   beforeEach(() => {
     if (!fs.existsSync(BASE_DIR)) {
       fs.mkdirSync(BASE_DIR, { recursive: true });

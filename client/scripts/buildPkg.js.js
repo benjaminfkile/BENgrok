@@ -3,7 +3,7 @@ const path = require("path")
 const dotenv = require("dotenv")
 dotenv.config()
 
-const appName = process.env.APP_NAME ?? "BENgrokTunnel-client"
+const appName = process.env.APP_NAME ?? "BENgrokTunnelClient"
 
 const nodeVersion = `node${process.env.NODE_VERSION ?? 18}`
 

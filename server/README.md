@@ -17,9 +17,9 @@
 ## 📦 Installation
 
 ```bash
-git clone https://elmllcsrepos.visualstudio.com/BENgrokTunnel/_git/BENgrokTunnel
-cd BENgrokTunnel
-cd server
+git git@github.com:benjaminfkile/BENgrok.git
+cd BENgrok
+cd client
 npm install
 ```
 
@@ -82,4 +82,4 @@ The server will forward that to the client, which makes the real request to `loc
 
 ## 📄 License
 
-MIT © ELM LLC
+MIT

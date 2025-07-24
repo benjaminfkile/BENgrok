@@ -19,7 +19,7 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-const APP_NAME = process.env.APP_NAME || "BENgrokTunnel";
+const APP_NAME = process.env.APP_NAME || "BENgrokTunnelClient";
 const BASE_DIR = path.join(os.homedir(), APP_NAME);
 const TUNNEL_FILE = path.join(BASE_DIR, "tunnel_url.txt");
 const PROFILE_FILE = path.join(BASE_DIR, "profiles.json");

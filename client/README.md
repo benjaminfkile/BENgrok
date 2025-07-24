@@ -18,8 +18,8 @@
 ## 📦 Installation
 
 ```bash
-git clone https://elmllcsrepos.visualstudio.com/BENgrokTunnel/_git/BENgrokTunnel
-cd BENgrokTunnel
+git git@github.com:benjaminfkile/BENgrok.git
+cd BENgrok
 cd client
 npm install
 ```
@@ -71,30 +71,20 @@ To package this tunnel client as a standalone executable (for Windows, macOS, an
    npm install -g pkg
    ```
 
-2. **Ensure `package.json` has the right entry point and config**:
-   Add this to `package.json`:
-   ```json
-   "bin": "dist/index.js",
-   "pkg": {
-     "scripts": "dist/**/*.js",
-     "targets": ["node18-win-x64", "node18-macos-x64", "node18-linux-x64"]
-   }
-   ```
-
-3. **Build your TypeScript**:
+2. **Build your TypeScript**:
    ```bash
    npm run build
    ```
 
-4. **Package with `pkg`**:
+3. **Package with `pkg`**:
    ```bash
    npm run package
    ```
 
    This will generate binaries like:
-   - `BENgrokTunnel-win.exe`
-   - `BENgrokTunnel-linux`
-   - `BENgrokTunnel-macos`
+   - `BENgrokTunnelClient-win.exe`
+   - `BENgrokTunnelClient-linux`
+   - `BENgrokTunnelClient-macos`
 
 ---
 
@@ -112,7 +102,7 @@ The tunnel server must:
 ## 🧠 Example Use Case
 
 You’re building a React Native app that needs to call `http://localhost:3001/api/...`.  
-With `BENgrokTunnel`, you can map that local API to a public URL like:
+With `BENgrokTunnelClient`, you can map that local API to a public URL like:
 
 ```
 https://BENgroktunnel.launchpointhome.com/tunnel/tunnelId/...
@@ -134,9 +124,9 @@ When pushing updates to the `main` branch:
    ```
 
 3. Commit the updated binaries:
-   - `BENgrokTunnel-win.exe`
-   - `BENgrokTunnel-linux`
-   - `BENgrokTunnel-macos`
+   - `BENgrokTunnelClient-win.exe`
+   - `BENgrokTunnelClient-linux`
+   - `BENgrokTunnelClient-macos`
 
 4. Push to `main` so others can download the latest version from the repo.
 
@@ -144,4 +134,4 @@ When pushing updates to the `main` branch:
 
 ## 📄 License
 
-MIT © ELM LLC
+MIT
