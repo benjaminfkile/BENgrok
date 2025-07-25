@@ -158,7 +158,7 @@ const startTunnel = async (
     const options: http.RequestOptions = {
       hostname: parsedTarget.hostname,
       port: parseInt(parsedTarget.port || (useHttps ? "443" : "80")),
-      path: parsedTarget.pathname + (req.url || ""),
+      path: path.posix.join(parsedTarget.pathname || "/", req.url || "/"),
       method: req.method,
       headers: {
         ...req.headers,
