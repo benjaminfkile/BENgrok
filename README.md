@@ -6,6 +6,10 @@
 
 **BENgrok** is a tunnel system (like Ngrok) for exposing local APIs to the internet. It includes:
 
+- 🔒 Supports all HTTP content types (JSON, form-data, file uploads, images, videos, gzip, etc.) via base64 encoding
+- 🔄 Queues per-tunnel requests to prevent dropped responses with concurrent traffic
+
+
 - ✅ `client/` – A CLI tunnel client that connects your local API (e.g. `http://localhost:3001`) to a public tunnel
 - ✅ `server/` – A public-facing WebSocket + HTTP tunnel server that routes traffic to connected clients
 

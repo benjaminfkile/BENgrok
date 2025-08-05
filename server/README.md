@@ -11,7 +11,9 @@
 - WebSocket server with dynamic tunnel registration
 - Forwards HTTP requests to connected tunnel clients
 - Routes based on unique `tunnelId`
-- Works in both Azure and on-prem environments
+- Supports all HTTP content types (JSON, form-data, file uploads, images, videos, gzip, etc.) via base64 encoding
+- Queues requests per tunnel to prevent dropped responses with concurrent traffic
+- Works in both Cloud and on-prem environments
 - Includes logging, error handling, and express middleware
 
 ---

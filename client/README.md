@@ -12,8 +12,11 @@
 - CLI-driven or profile-based connection setup
 - Auto-reconnect with heartbeat support
 - Forwards HTTP requests to your local machine
+- Decodes base64-encoded request bodies from the server to support all HTTP content types (JSON, form-data, file uploads, images, videos, gzip, etc.)
+- Returns responses to the server as base64 to preserve binary and compressed data
 - Clean logging and optional clipboard copy
-- Compatible with Azure or on-prem tunnel servers
+- Compatible with Cloud or on-prem tunnel servers
+
 
 ---
 
