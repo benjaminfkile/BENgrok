@@ -1,7 +1,7 @@
 import express, { Express, NextFunction, Request, Response } from "express";
 import morgan from "morgan";
 import cors from "cors";
-import helmet from "helmet";
+//import helmet from "helmet";
 import { handleTunnelProxy } from "./tunnelServer";
 
 const NODE_ENV = process.env.NODE_ENV;
@@ -11,7 +11,7 @@ const morganOption: string = NODE_ENV === "production" ? "tiny" : "common";
 
 app.use(morgan(morganOption));
 app.use(cors());
-app.use(helmet());
+//app.use(helmet());
 
 app.all("/tunnel/*", handleTunnelProxy);
 
