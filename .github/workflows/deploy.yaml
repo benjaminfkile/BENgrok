@@ -2,7 +2,7 @@ name: Build and Deploy BenGrok
 
 on:
   push:
-    branches: ["feature/move-to-aws"]
+    branches: ["main"]
 
 jobs:
   deploy:
