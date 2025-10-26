@@ -31,6 +31,6 @@ ARG NODE_ENVIRONMENT
 # ---- Expose them as runtime env vars ----
 ENV NODE_ENVIRONMENT=$NODE_ENVIRONMENT
 
-EXPOSE 3003
+EXPOSE 3002
 
 CMD ["node", "dist/index.js"]

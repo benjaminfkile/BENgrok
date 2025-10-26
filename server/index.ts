@@ -5,7 +5,7 @@ import app from "./src/app";
 
 dotenv.config();
 
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 3002;
 const server = createServer(app);
 
 registerTunnelServer(server);
