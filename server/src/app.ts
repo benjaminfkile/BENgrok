@@ -3,15 +3,14 @@ import morgan from "morgan";
 import cors from "cors";
 //import helmet from "helmet";
 import { handleTunnelProxy } from "./tunnelServer";
+import { isLocal } from "./utils/isLocal";
 
-const NODE_ENV = process.env.NODE_ENV;
 const app: Express = express();
 
-const morganOption: string = NODE_ENV === "production" ? "tiny" : "common";
-
-app.use(morgan(morganOption));
-app.use(cors());
-//app.use(helmet());
+if (isLocal()) {
+  app.use(morgan("dev"));
+  app.use(cors());
+}
 
 app.all("/tunnel/*", handleTunnelProxy);
 
