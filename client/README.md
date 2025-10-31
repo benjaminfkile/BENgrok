@@ -6,7 +6,7 @@
 
 ---
 
-## 🚀 Features
+## Features
 
 - WebSocket tunnel client with `tunnelId` support
 - CLI-driven or profile-based connection setup
@@ -20,7 +20,7 @@
 
 ---
 
-## 📦 Installation
+## Installation
 
 ```bash
 git git@github.com:benjaminfkile/BENgrok.git
@@ -31,7 +31,7 @@ npm install
 
 ---
 
-## 🛠️ Usage
+## Usage
 
 ### Start the tunnel client:
 
@@ -49,7 +49,7 @@ You can also save and reuse tunnel profiles via CLI prompts.
 
 ---
 
-## 🗂 Profiles
+## Profiles
 
 Profiles are stored in:
 
@@ -67,7 +67,7 @@ You can select from saved profiles at startup.
 
 ---
 
-## 📦 Packaging Into Executable
+## Packaging Into Executable
 
 To package this tunnel client as a standalone executable (for Windows, macOS, and Linux):
 
@@ -93,7 +93,7 @@ To package this tunnel client as a standalone executable (for Windows, macOS, an
 
 ---
 
-## 🌐 Tunnel Server Requirements
+## Tunnel Server Requirements
 
 The tunnel server must:
 - Support WebSocket connections with `tunnelId` query param
@@ -104,17 +104,17 @@ The tunnel server must:
 
 ---
 
-## 🧠 Example Use Case
+## Example Use Case
 
 You’re building a React Native app that needs to call `http://localhost:3001/api/...`.  
 With `BENgrokClient`, you can map that local API to a public URL like:
 
 ```
-https://BENgroktunnel.launchpointhome.com/tunnel/tunnelId/...
+https://your-app.com/tunnel/tunnelId/...
 ```
 ---
 
-## 🔁 Updating Main Branch
+## Updating Main Branch
 
 When pushing updates to the `main` branch:
 
@@ -134,9 +134,3 @@ When pushing updates to the `main` branch:
    - `BENgrokClient-macos`
 
 4. Push to `main` so others can download the latest version from the repo.
-
----
-
-## 📄 License
-
-MIT

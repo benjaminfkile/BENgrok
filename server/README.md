@@ -6,7 +6,7 @@
 
 ---
 
-## 🚀 Features
+## Features
 
 - WebSocket server with dynamic tunnel registration
 - Forwards HTTP requests to connected tunnel clients
@@ -18,7 +18,7 @@
 
 ---
 
-## 📦 Installation
+## nstallation
 
 ```bash
 git git@github.com:benjaminfkile/BENgrok.git
@@ -29,7 +29,7 @@ npm install
 
 ---
 
-## 🛠️ Usage
+## Usage
 
 Start the tunnel server locally:
 
@@ -42,7 +42,7 @@ The server will start on the port defined in `.env` or default to port:8000.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 - `src/app.ts` – Sets up the Express app, routes, and middleware
 - `src/tunnelServer.ts` – Manages WebSocket tunnel connections and HTTP request forwarding
@@ -50,7 +50,7 @@ The server will start on the port defined in `.env` or default to port:8000.
 
 ---
 
-## 🌐 Tunnel Endpoints
+## Tunnel Endpoints
 
 - **WebSocket Connection**
   - `ws://<host>:<port>/?id=<tunnelId>`
@@ -62,28 +62,18 @@ The server will start on the port defined in `.env` or default to port:8000.
 
 ---
 
-## 🧠 Example Use Case
+## Example Use Case
 
 If an app needs to talk to `http://localhost:3001/api/...`, and the dev machine is running BENgrokTunnel Client:
 
-You can hit this public endpoint:
-
-```
-https://BENgroktunnel.launchpointhome.com/tunnel/<tunnelId>/api/...
-```
 
 The server will forward that to the client, which makes the real request to `localhost:3001`.
 
 ---
 
-## 🛡 Deployment
+## Deployment
 
-- Can be hosted on Azure App Service, IIS, or any Node-compatible Linux server
 - Ensure `PORT` is open and accessible to both client and remote users
 - WebSockets must be enabled on the hosting platform
 
 ---
-
-## 📄 License
-
-MIT
